@@ -14,9 +14,9 @@ public class SecondActivity extends AppCompatActivity {
     TextView tv;
     Button btnb;
     Intent gi;
-    Intent back;
     String ssumm;
     double sum;
+    int i=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,11 @@ public class SecondActivity extends AppCompatActivity {
         tv.setText(ssumm);
     }
     public void Back(View view) {
-        back.putExtra("start", sum);
+        i=i+1;
+        String j=Integer.toString(i);
+        Intent back=new Intent();
+        back.putExtra("s", sum);
+        back.putExtra("a",j);
         setResult(RESULT_OK, back);
         finish();
     }

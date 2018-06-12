@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
     double num1, num2 = 0, x;
     String st;
     int op = 1;
+    String strStart,anotherStart;
+    TextView tv;
+    int count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         btnAC = (Button) findViewById(R.id.btnAC);
         btnE = (Button) findViewById(R.id.btnE);
         btnC = (Button) findViewById(R.id.btnC);
+        tv= (TextView) findViewById(R.id.tv);
     }
 
     public void Plus(View view) {
@@ -209,9 +214,14 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(t,1);
     }
 
-    public void onActivityResult(int rqCode, int rsCode, Intent data_back){
+    @Override
+    protected void onActivityResult(int rqCode, int rsCode, Intent data_back) {
+        super.onActivityResult(rqCode, rsCode, data_back);
         if (data_back!=null){
-            et.setHint(data_back.getStringExtra("start"));
+            strStart = data_back.getStringExtra("s");
+            anotherStart = data_back.getStringExtra("a");
+            et.setText(strStart);
+            tv.setText(anotherStart);
         }
     }
 }
