@@ -17,9 +17,9 @@ public class MainActivity extends AppCompatActivity {
     double num1, num2 = 0, x;
     String st;
     int op = 1;
-    String strStart,anotherStart;
+    String strStart;
     TextView tv;
-    int count;
+    int i=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -219,9 +219,9 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(rqCode, rsCode, data_back);
         if (data_back!=null){
             strStart = data_back.getStringExtra("s");
-            anotherStart = data_back.getStringExtra("a");
+            i++;
             et.setText(strStart);
-            tv.setText(anotherStart);
+            tv.setText(i+"");
         }
     }
 }
